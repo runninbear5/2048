@@ -13,9 +13,6 @@ function setup(){
 }
 
 function draw(){
-	if(touches.length > 0){
-			prevTouch = createVector(touches[0].x, touches[0].y);
-	}
 	if(!won){
 		background(204, 190, 178);
 		rectMode(CORNER);
@@ -51,6 +48,10 @@ function draw(){
 		textAlign(CENTER);
 		text("You Lost", 500/2, 600/2);
 	}
+}
+
+function touchStarted(){
+	prevTouch = createVector(touches[0].x, touches[0].y);
 }
 
 function touchMoved(){

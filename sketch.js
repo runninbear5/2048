@@ -4,8 +4,6 @@ var skinnyRect = 10;
 var longRect = 650;
 var won = false;
 var lost = false;
-var birdCreate;
-var prevTouch;
 
 function setup(){
 	createCanvas(650,650);
@@ -13,6 +11,7 @@ function setup(){
 }
 
 function draw(){
+	touches;
 	if(!won){
 		background(204, 190, 178);
 		rectMode(CORNER);
@@ -51,20 +50,30 @@ function draw(){
 }
 
 function touchStarted(){
-	prevTouch = createVector(touches[0].x, touches[0].y);
-}
-
-function touchMoved(){
-	if(touches[0].x > prevTouch.x){
-		moveRight();
-	}else if(touches[0].x < prevTouch.x){
-		moveLeft();
-	}else if(touches[0].y > prevTouch.y){
-		moveUp();
-	}else if(touches[0].y < prevTouch.y){
-		moveDown();
+	if(touches.length>0){
+		if(touches[0].x > 650.0/2.0){
+			moveRight();
+		}else if(touches[0].x < 650.0/2.0){
+			moveLeft();
+		}else if(touches[0].y > 650.0/2.0){
+			moveUp();
+		}else if(touches[0].y < 650.0/2.0){
+			moveDown();
+		}
 	}
 }
+
+// function touchMoved(){
+// 	if(touches[0].x > prevTouch.x){
+// 		moveRight();
+// 	}else if(touches[0].x < prevTouch.x){
+// 		moveLeft();
+// 	}else if(touches[0].y > prevTouch.y){
+// 		moveUp();
+// 	}else if(touches[0].y < prevTouch.y){
+// 		moveDown();
+// 	}
+// }
 
 function addBoxes(num){
 	for(var i=0; i<num; i++){

@@ -49,19 +49,19 @@ function draw(){
 	}
 }
 
-function touchStarted(){
-	if(touches.length>0){
-		if(touches[0].x > 650.0/2.0){
-			moveRight();
-		}else if(touches[0].x < 650.0/2.0){
-			moveLeft();
-		}else if(touches[0].y > 650.0/2.0){
-			moveUp();
-		}else if(touches[0].y < 650.0/2.0){
-			moveDown();
-		}
-	}
-}
+// function touchStarted(){
+// 	if(touches.length>0){
+// 		if(touches[0].x > 650.0/2.0){
+// 			moveRight();
+// 		}else if(touches[0].x < 650.0/2.0){
+// 			moveLeft();
+// 		}else if(touches[0].y > 650.0/2.0){
+// 			moveUp();
+// 		}else if(touches[0].y < 650.0/2.0){
+// 			moveDown();
+// 		}
+// 	}
+// }
 
 // function touchMoved(){
 // 	if(touches[0].x > prevTouch.x){

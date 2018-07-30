@@ -1,5 +1,5 @@
 var boxs = [];
-var keypresses = [];
+var keysPressed = [];
 var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
 var locations = [10, 170, 330, 490];
 var skinnyRect = 10;
@@ -120,16 +120,16 @@ function keyPressed(){
 				lost = true;
 		}
 	}
-	if(keypresses.length<11){
-		keypresses.push(keyCode);
+	if(keysPressed.length<11){
+		keysPressed.push(keyCode);
 	}else{
-		keypresses.splice(0,1);
-		keypresses.push(keyCode);
+		keysPressed.splice(0,1);
+		keysPressed.push(keyCode);
 	}
 	var konami = true;
-	if(keypresses.length===11){
-		for(var i=0; i<keypresses.length; i++){
-			if(!(keypresses[i]===konamiCode[i])){
+	if(keysPressed.length===11){
+		for(var i=0; i<keysPressed.length; i++){
+			if(!(keysPressed[i]===konamiCode[i])){
 				konami = false;
 			}
 		}

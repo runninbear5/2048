@@ -1,4 +1,6 @@
 var boxs = [];
+var keypresses = [];
+var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
 var locations = [10, 170, 330, 490];
 var skinnyRect = 10;
 var longRect = 650;
@@ -11,7 +13,6 @@ function setup(){
 }
 
 function draw(){
-	touches;
 	if(!won){
 		background(204, 190, 178);
 		rectMode(CORNER);
@@ -117,6 +118,23 @@ function keyPressed(){
 		}
 		if(boxs.length === 16){
 				lost = true;
+		}
+	}
+	if(keypresses.length<11){
+		keypresses.push(keyCode);
+	}else{
+		keypresses.splice(0,1);
+		keypresses.push(keyCode);
+	}
+	var konami = true;
+	if(keypresses.length===11){
+		for(var i=0; i<keypresses.length; i++){
+			if(!(keypresses[i]===konamiCode[i])){
+				konami = false;
+			}
+		}
+		if(konami){
+			won = true;
 		}
 	}
 }
